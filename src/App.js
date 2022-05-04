@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Title from "./components/Title";
+import ExerciseInput from "./components/ExerciseInput";
+import History from "./components/History";
 
-function App() {
+const App = () => {
+  const [exercise, setExercise] = useState({
+    exercise: "",
+    weight: "",
+    sets: "",
+    reps: "",
+  });
+  const [history, setHistory] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Title />
+      <ExerciseInput
+        exercise={exercise}
+        setExercise={setExercise}
+        setHistory={setHistory}
+        history={history}
+      />
+      <History history={history} />
+    </>
   );
-}
+};
 
 export default App;
