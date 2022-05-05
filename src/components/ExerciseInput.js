@@ -1,40 +1,34 @@
+import "../stylesheets/ExerciseInput.css";
+import Input from "./Input";
+import Stepper from "./Stepper";
+
 const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
   return (
-    <>
-      <input
-        className="exercise"
-        type="text"
+    <div className="exercise-input-container">
+      <Input
+        placeholder="Exercise"
         onChange={(e) => {
           setExercise({ ...exercise, exercise: e.target.value });
         }}
         value={exercise.exercise}
       />
-      <input
-        className="weight"
-        type="text"
+      <Input
+        placeholder="Weight"
         onChange={(e) => {
-          setExercise({ ...exercise, weight: e.target.value });
+          setExercise({
+            ...exercise,
+            weight: Number(e.target.value.replace(/[^0-9.]/, "")),
+          });
         }}
         value={exercise.weight}
       />
-      <input
-        className="sets"
-        type="text"
-        onChange={(e) => {
-          setExercise({ ...exercise, sets: e.target.value });
-        }}
-        value={exercise.sets}
-      />
-      <input
-        className="reps"
-        type="text"
-        onChange={(e) => {
-          setExercise({ ...exercise, reps: e.target.value });
-        }}
-        value={exercise.reps}
-      />
-      <button onClick={() => setHistory([...history, exercise])}>+</button>
-    </>
+
+      <Stepper label="Sets" changeHandler={setExercise} value={exercise} />
+      <Stepper label="Reps" changeHandler={setExercise} value={exercise} />
+      <button onClick={() => setHistory([...history, exercise])}>
+        Add Workout
+      </button>
+    </div>
   );
 };
 
