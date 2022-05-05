@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Title from "./components/Title";
 import ExerciseInput from "./components/ExerciseInput";
-import History from "./components/History";
+import DisplayHistory from "./components/DisplayHistory";
 
 const App = () => {
   const [exercise, setExercise] = useState({
     exercise: "",
     weight: "",
-    sets: "",
-    reps: "",
+    sets: 4,
+    reps: 10,
   });
   const [history, setHistory] = useState([]);
   return (
@@ -20,7 +20,7 @@ const App = () => {
         setHistory={setHistory}
         history={history}
       />
-      <History history={history} />
+      <DisplayHistory history={history} />
     </>
   );
 };
