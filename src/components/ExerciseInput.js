@@ -12,19 +12,20 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
         }}
         value={exercise.exercise}
       />
-      <Input
-        placeholder="Weight"
-        onChange={(e) => {
-          setExercise({
-            ...exercise,
-            weight: Number(e.target.value.replace(/[^0-9.]/, "")),
-          });
-        }}
-        value={exercise.weight}
-      />
-
-      <Stepper label="Sets" changeHandler={setExercise} value={exercise} />
-      <Stepper label="Reps" changeHandler={setExercise} value={exercise} />
+      <div className="number-inputs">
+        <Input
+          placeholder="Weight"
+          onChange={(e) => {
+            setExercise({
+              ...exercise,
+              weight: Number(e.target.value.replace(/[^0-9.]/, "")),
+            });
+          }}
+          value={exercise.weight}
+        />
+        <Stepper label="Sets" changeHandler={setExercise} value={exercise} />
+        <Stepper label="Reps" changeHandler={setExercise} value={exercise} />
+      </div>
       <button onClick={() => setHistory([...history, exercise])}>
         Add Workout
       </button>
