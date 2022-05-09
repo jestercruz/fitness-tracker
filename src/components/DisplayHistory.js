@@ -5,6 +5,7 @@ const DisplayHistory = ({ history }) => {
     const day = date.slice(8, 10);
     return `${month}/${day}/${year}`;
   };
+
   return (
     <div>
       <table>
