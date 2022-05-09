@@ -6,6 +6,13 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
   return (
     <div className="exercise-input-container">
       <Input
+        type="date"
+        value={exercise.date}
+        onChange={(e) => {
+          setExercise({ ...exercise, date: e.target.value });
+        }}
+      />
+      <Input
         placeholder="Exercise"
         onChange={(e) => {
           setExercise({ ...exercise, exercise: e.target.value });
