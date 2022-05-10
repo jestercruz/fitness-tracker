@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import Title from "./components/Title";
 import ExerciseInput from "./components/ExerciseInput";
 import DisplayHistory from "./components/DisplayHistory";
+import "./stylesheets/App.css";
 
 const App = () => {
   // TODO: Figure out how to set a default value
-  // const defaultValue = new Date().toISOString().split("T")[0];
-  // console.log(defaultValue);
+  const dateTime = new Date().toISOString().split("T");
 
   const [exercise, setExercise] = useState({
-    date: "",
+    id: "",
+    date: dateTime[0],
     exercise: "",
-    weight: "",
+    weight: 0,
     sets: 4,
     reps: 10,
   });

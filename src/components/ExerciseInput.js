@@ -1,8 +1,16 @@
+import { useEffect, useState } from "react";
 import "../stylesheets/ExerciseInput.css";
 import Input from "./Input";
 import Stepper from "./Stepper";
 
 const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
+  const [updateHistory, setUpdateHistory] = useState(false);
+  useEffect(() => {
+    if (updateHistory) {
+      setHistory([...history, exercise]);
+      setUpdateHistory(false);
+    }
+  }, [updateHistory, setHistory, history, exercise]);
   return (
     <div className="exercise-input-container">
       <Input
@@ -25,6 +33,12 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
           onChange={(e) => {
             setExercise({
               ...exercise,
+              weight: e.target.value.replace(/[^0-9.]/, ""),
+            });
+          }}
+          onBlur={(e) => {
+            setExercise({
+              ...exercise,
               weight: Number(e.target.value.replace(/[^0-9.]/, "")),
             });
           }}
@@ -33,7 +47,13 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
         <Stepper label="Sets" changeHandler={setExercise} value={exercise} />
         <Stepper label="Reps" changeHandler={setExercise} value={exercise} />
       </div>
-      <button onClick={() => setHistory([...history, exercise])}>
+      <button
+        className="add-workout"
+        onClick={() => {
+          setExercise({ ...exercise, id: Date.now() });
+          setUpdateHistory(true);
+        }}
+      >
         Add Workout
       </button>
     </div>

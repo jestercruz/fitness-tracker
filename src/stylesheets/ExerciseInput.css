@@ -8,5 +8,11 @@
 
 .exercise-input-container > .number-inputs {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+.add-workout {
+  height: 3.45em;
+  margin-bottom: 15px;
 }

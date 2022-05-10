@@ -1,4 +1,6 @@
-const Input = ({ placeholder, onChange, value, type = "text" }) => {
+import "../stylesheets/Input.css";
+
+const Input = ({ placeholder, onChange, value, onBlur, type = "text" }) => {
   return (
     <input
       className="input"
@@ -6,6 +8,7 @@ const Input = ({ placeholder, onChange, value, type = "text" }) => {
       placeholder={placeholder}
       onChange={onChange}
       value={value}
+      onBlur={onBlur}
     />
   );
 };
