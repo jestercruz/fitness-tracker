@@ -5,7 +5,6 @@ import DisplayHistory from "./components/DisplayHistory";
 import "./stylesheets/App.css";
 
 const App = () => {
-  // TODO: Figure out how to set a default value
   const dateTime = new Date().toISOString().split("T");
 
   const [exercise, setExercise] = useState({
