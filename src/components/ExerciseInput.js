@@ -21,6 +21,13 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
         }}
       />
       <Input
+        placeholder="Muscle Group"
+        onChange={(e) => {
+          setExercise({ ...exercise, group: e.target.value });
+        }}
+        value={exercise.group}
+      />
+      <Input
         placeholder="Exercise"
         onChange={(e) => {
           setExercise({ ...exercise, exercise: e.target.value });
