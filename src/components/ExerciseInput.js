@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "../stylesheets/ExerciseInput.css";
 import Input from "./Input";
 import Stepper from "./Stepper";
+import AutoCompletePanel from "./AutoCompletePanel";
+import { WORKOUTS } from "../data/workouts";
 
 const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
   const [updateHistory, setUpdateHistory] = useState(false);
@@ -11,6 +13,9 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
       setUpdateHistory(false);
     }
   }, [updateHistory, setHistory, history, exercise]);
+
+  const [showAutoComplete, setShowAutoComplete] = useState(false);
+
   return (
     <div className="exercise-input-container">
       <Input
@@ -23,10 +28,21 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
       <Input
         placeholder="Muscle Group"
         onChange={(e) => {
+          if (e.target.value !== "") {
+            setShowAutoComplete(true);
+          } else {
+            setShowAutoComplete(false);
+          }
           setExercise({ ...exercise, group: e.target.value });
+        }}
+        onBlur={(e) => {
+          setShowAutoComplete(true);
         }}
         value={exercise.group}
       />
+      {showAutoComplete ? (
+        <AutoCompletePanel data={WORKOUTS} key="group" />
+      ) : null}
       <Input
         placeholder="Exercise"
         onChange={(e) => {

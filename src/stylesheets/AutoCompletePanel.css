@@ -1,0 +1,7 @@
+.auto-complete-panel {
+  width: 80%;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 180px;
+}
