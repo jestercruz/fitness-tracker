@@ -5,11 +5,11 @@ export const WORKOUTS = [
     exercises: [
       {
         id: 0,
-        exercise: "Bicep Curl",
+        exerciseName: "Bicep Curl",
       },
       {
         id: 1,
-        exercise: "Tricep Extension",
+        exerciseName: "Tricep Extension",
       },
     ],
   },
@@ -19,11 +19,25 @@ export const WORKOUTS = [
     exercises: [
       {
         id: 0,
-        exercise: "Shoulder Shrugs",
+        exerciseName: "Shoulder Shrugs",
       },
       {
         id: 1,
-        exercise: "Shoulder Press",
+        exerciseName: "Shoulder Press",
+      },
+    ],
+  },
+  {
+    id: 2,
+    group: "Back",
+    exercises: [
+      {
+        id: 0,
+        exerciseName: "Reverse Fly",
+      },
+      {
+        id: 1,
+        exerciseName: "Back Extension",
       },
     ],
   },

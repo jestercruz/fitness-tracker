@@ -15,7 +15,30 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
   }, [updateHistory, setHistory, history, exercise]);
 
   const [showAutoComplete, setShowAutoComplete] = useState(false);
-
+  const [showExerciseAutoComplete, setShowExerciseAutoComplete] =
+    useState(false);
+  const hideAutoCompletePanel = (e) => {
+    if (
+      e.relatedTarget?.className !== "auto-complete-item" &&
+      e.relatedTarget?.className !== "auto-complete-panel"
+    ) {
+      setShowAutoComplete(false);
+    }
+  };
+  const filterExercises = () => {
+    let filteredExercises = [];
+    let workoutsCopy = WORKOUTS;
+    let groups = WORKOUTS.map((e) => e.group);
+    if (groups.includes(exercise.group)) {
+      workoutsCopy = WORKOUTS.filter((e) => {
+        return e.group === exercise.group;
+      });
+    }
+    workoutsCopy.forEach(
+      (e) => (filteredExercises = [...filteredExercises, ...e.exercises])
+    );
+    return filteredExercises;
+  };
   return (
     <div className="exercise-input-container">
       <Input
@@ -27,6 +50,7 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
       />
       <Input
         placeholder="Muscle Group"
+        className={showAutoComplete ? "with-autocomplete" : ""}
         onChange={(e) => {
           if (e.target.value !== "") {
             setShowAutoComplete(true);
@@ -36,20 +60,41 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
           setExercise({ ...exercise, group: e.target.value });
         }}
         onBlur={(e) => {
-          setShowAutoComplete(true);
+          hideAutoCompletePanel(e);
         }}
         value={exercise.group}
       />
       {showAutoComplete ? (
-        <AutoCompletePanel data={WORKOUTS} key="group" />
+        <AutoCompletePanel
+          data={WORKOUTS}
+          dataKey="group"
+          exercise={exercise}
+          setExercise={setExercise}
+          setShowAutoComplete={setShowAutoComplete}
+        />
       ) : null}
       <Input
         placeholder="Exercise"
+        className={showExerciseAutoComplete ? "with-autocomplete" : ""}
         onChange={(e) => {
-          setExercise({ ...exercise, exercise: e.target.value });
+          if (e.target.value !== "") {
+            setShowExerciseAutoComplete(true);
+          } else {
+            setShowExerciseAutoComplete(false);
+          }
+          setExercise({ ...exercise, exerciseName: e.target.value });
         }}
-        value={exercise.exercise}
+        value={exercise.exerciseName}
       />
+      {showExerciseAutoComplete ? (
+        <AutoCompletePanel
+          data={filterExercises()}
+          dataKey="exerciseName"
+          exercise={exercise}
+          setExercise={setExercise}
+          setShowAutoComplete={setShowExerciseAutoComplete}
+        />
+      ) : null}
       <div className="number-inputs">
         <Input
           placeholder="Weight"

@@ -1,9 +1,16 @@
 import "../stylesheets/Input.css";
 
-const Input = ({ placeholder, onChange, value, onBlur, type = "text" }) => {
+const Input = ({
+  className,
+  placeholder,
+  onChange,
+  value,
+  onBlur,
+  type = "text",
+}) => {
   return (
     <input
-      className="input"
+      className={`input ${className}`}
       type={type}
       placeholder={placeholder}
       onChange={onChange}
