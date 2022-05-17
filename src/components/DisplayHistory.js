@@ -24,7 +24,7 @@ const DisplayHistory = ({ history }) => {
             <tr key={el.id}>
               <td>{formatDate(el.date)}</td>
               <td>{el.group}</td>
-              <td>{el.exercise}</td>
+              <td>{el.exerciseName}</td>
               <td>{el.weight}</td>
               <td>{el.sets}</td>
               <td>{el.reps}</td>
