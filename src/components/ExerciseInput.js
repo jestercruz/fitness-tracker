@@ -13,6 +13,18 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
     }
   }, [updateHistory, setHistory, history, exercise]);
 
+  const findMuscleGroup = (e) => {
+    const workoutObject = WORKOUTS.find((el) => {
+      for (let i = 0; i < el.exercises.length; i++) {
+        if (el.exercises[i].exerciseName === e.target.value) {
+          return true;
+        }
+      }
+      return false;
+    });
+    return workoutObject?.group || exercise.group;
+  };
+
   const filterExercises = () => {
     let filteredExercises = [];
     let workoutsCopy = WORKOUTS;
@@ -28,7 +40,6 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
       // goes through workoutsCopy and stores each exercise into filteredExercises
       (el) => filteredExercises.push(...el.exercises)
     );
-    console.log(filteredExercises);
     return filteredExercises;
   };
   return (
@@ -55,7 +66,11 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
       <Input
         placeholder="Exercise"
         onChange={(e) => {
-          setExercise({ ...exercise, exerciseName: e.target.value });
+          setExercise({
+            ...exercise,
+            exerciseName: e.target.value,
+            group: findMuscleGroup(e),
+          });
         }}
         enableAutoComplete
         data={filterExercises().filter((el) => {
