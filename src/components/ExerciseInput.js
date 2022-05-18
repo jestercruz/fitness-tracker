@@ -16,15 +16,19 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
   const filterExercises = () => {
     let filteredExercises = [];
     let workoutsCopy = WORKOUTS;
-    let groups = WORKOUTS.map((e) => e.group);
+    let groups = WORKOUTS.map((el) => el.group); // goes through WORKOUTS and stores each group into the groups array
     if (groups.includes(exercise.group)) {
-      workoutsCopy = WORKOUTS.filter((e) => {
-        return e.group === exercise.group;
+      // checks if the groups array has current group in input box
+      workoutsCopy = WORKOUTS.filter((el) => {
+        // if it is, then WORKOUTS is filtered based on whether the element's group matches what is entered in the group field (exercise.group)
+        return el.group === exercise.group;
       });
     }
     workoutsCopy.forEach(
-      (e) => (filteredExercises = [...filteredExercises, ...e.exercises])
+      // goes through workoutsCopy and stores each exercise into filteredExercises
+      (el) => filteredExercises.push(...el.exercises)
     );
+    console.log(filteredExercises);
     return filteredExercises;
   };
   return (
@@ -43,7 +47,9 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
         }}
         value={exercise.group}
         enableAutoComplete
-        data={WORKOUTS}
+        data={WORKOUTS.filter((el) => {
+          return el.group.toLowerCase().includes(exercise.group.toLowerCase());
+        })}
         dataKey="group"
       />
       <Input
@@ -52,7 +58,11 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
           setExercise({ ...exercise, exerciseName: e.target.value });
         }}
         enableAutoComplete
-        data={filterExercises()}
+        data={filterExercises().filter((el) => {
+          return el.exerciseName
+            .toLowerCase()
+            .includes(exercise.exerciseName.toLowerCase());
+        })}
         dataKey="exerciseName"
         value={exercise.exerciseName}
       />

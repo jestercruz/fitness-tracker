@@ -12,6 +12,7 @@ const Input = ({
   dataKey,
 }) => {
   const [showAutoComplete, setShowAutoComplete] = useState(false);
+
   const onInputChange = (e) => {
     onChange(e);
     if (e.target.value !== "") {
