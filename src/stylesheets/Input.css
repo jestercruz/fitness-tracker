@@ -1,4 +1,15 @@
 .input {
   height: 3em;
   margin-bottom: 10px;
+  border-radius: 15px;
+  border-color: black;
+  padding-left: 10px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input.with-autocomplete {
+  border-radius: 15px 15px 0px 0px;
 }

@@ -15,4 +15,5 @@
 .add-workout {
   height: 3.45em;
   margin-bottom: 15px;
+  border-radius: 10px;
 }

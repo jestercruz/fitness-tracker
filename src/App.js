@@ -11,7 +11,7 @@ const App = () => {
     id: "",
     date: dateTime[0],
     group: "",
-    exercise: "",
+    exerciseName: "",
     weight: 0,
     sets: 4,
     reps: 10,

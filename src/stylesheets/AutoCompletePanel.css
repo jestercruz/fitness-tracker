@@ -1,0 +1,39 @@
+.auto-complete-panel {
+  width: 80%;
+  height: 111px;
+  background-color: white;
+  position: absolute;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 0px;
+  border-radius: 0px 0px 15px 15px;
+  border-style: inset;
+  border-color: black;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.auto-complete-panel.group {
+  top: 180px;
+}
+
+.auto-complete-panel.exerciseName {
+  top: 236px;
+}
+
+.auto-complete-item {
+  list-style-type: none;
+  font-size: 20px;
+  padding: 5px 0px 5px 10px;
+  cursor: pointer;
+}
+
+.auto-complete-item:hover {
+  background-color: gray;
+}
+
+.auto-complete-panel ul {
+  margin: 0;
+  padding-left: 0px;
+}

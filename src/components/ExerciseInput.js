@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../stylesheets/ExerciseInput.css";
 import Input from "./Input";
 import Stepper from "./Stepper";
+import { WORKOUTS } from "../data/workouts";
 
 const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
   const [updateHistory, setUpdateHistory] = useState(false);
@@ -11,6 +12,25 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
       setUpdateHistory(false);
     }
   }, [updateHistory, setHistory, history, exercise]);
+
+  const filterExercises = () => {
+    let filteredExercises = [];
+    let workoutsCopy = WORKOUTS;
+    let groups = WORKOUTS.map((el) => el.group); // goes through WORKOUTS and stores each group into the groups array
+    if (groups.includes(exercise.group)) {
+      // checks if the groups array has current group in input box
+      workoutsCopy = WORKOUTS.filter((el) => {
+        // if it is, then WORKOUTS is filtered based on whether the element's group matches what is entered in the group field (exercise.group)
+        return el.group === exercise.group;
+      });
+    }
+    workoutsCopy.forEach(
+      // goes through workoutsCopy and stores each exercise into filteredExercises
+      (el) => filteredExercises.push(...el.exercises)
+    );
+    console.log(filteredExercises);
+    return filteredExercises;
+  };
   return (
     <div className="exercise-input-container">
       <Input
@@ -26,13 +46,25 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
           setExercise({ ...exercise, group: e.target.value });
         }}
         value={exercise.group}
+        enableAutoComplete
+        data={WORKOUTS.filter((el) => {
+          return el.group.toLowerCase().includes(exercise.group.toLowerCase());
+        })}
+        dataKey="group"
       />
       <Input
         placeholder="Exercise"
         onChange={(e) => {
-          setExercise({ ...exercise, exercise: e.target.value });
+          setExercise({ ...exercise, exerciseName: e.target.value });
         }}
-        value={exercise.exercise}
+        enableAutoComplete
+        data={filterExercises().filter((el) => {
+          return el.exerciseName
+            .toLowerCase()
+            .includes(exercise.exerciseName.toLowerCase());
+        })}
+        dataKey="exerciseName"
+        value={exercise.exerciseName}
       />
       <div className="number-inputs">
         <Input
