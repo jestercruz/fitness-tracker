@@ -1,6 +1,6 @@
 .auto-complete-panel {
   width: 80%;
-  height: 111px;
+  max-height: 111px;
   background-color: white;
   position: absolute;
   border-bottom: 2px solid black;

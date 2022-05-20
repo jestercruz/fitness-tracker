@@ -1,0 +1,17 @@
+.nav-container {
+  margin-top: auto;
+}
+
+.nav-container ul {
+  display: flex;
+  padding: 0;
+  justify-content: space-around;
+}
+
+.nav-icon {
+  list-style-type: none;
+}
+
+.nav-container path {
+  color: #fff;
+}

@@ -1,33 +1,23 @@
-import React, { useState } from "react";
-import Title from "./components/Title";
-import ExerciseInput from "./components/ExerciseInput";
-import DisplayHistory from "./components/DisplayHistory";
 import "./stylesheets/App.css";
+import Title from "./components/Title";
+// import AddWorkout from "./views/AddWorkout";
+import Home from "./views/Home";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import AddWorkout from "./views/AddWorkout";
+import Navigation from "./views/Navigation";
 
 const App = () => {
-  const dateTime = new Date(Date.now()).toISOString().split("T");
-
-  const [exercise, setExercise] = useState({
-    id: "",
-    date: dateTime[0],
-    group: "",
-    exerciseName: "",
-    weight: 0,
-    sets: 4,
-    reps: 10,
-  });
-  const [history, setHistory] = useState([]);
   return (
-    <>
-      <Title />
-      <ExerciseInput
-        exercise={exercise}
-        setExercise={setExercise}
-        setHistory={setHistory}
-        history={history}
-      />
-      <DisplayHistory history={history} />
-    </>
+    <Router>
+      <div className="main-container">
+        <Title />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/addworkout" element={<AddWorkout />} />
+        </Routes>
+        <Navigation />
+      </div>
+    </Router>
   );
 };
 
