@@ -9,16 +9,27 @@ const Stepper = ({ label, changeHandler, value }) => {
       <div className="stepper-container">
         <button
           className="stepperButton"
-          onClick={() => changeHandler({ ...value, [key]: value[key] - 1 })}
+          onClick={() => {
+            value[key] -= 1;
+            if (value[key] > 0) {
+              changeHandler({ ...value, [key]: value[key] });
+            } else {
+              changeHandler({ ...value, [key]: (value[key] = 1) });
+            }
+          }}
         >
           -
         </button>
         <Input
           onChange={(e) => {
-            changeHandler({
-              ...value,
-              [key]: Number(e.target.value.replace(/[^0-9]/, "")),
-            });
+            if (e.target.value > 0) {
+              changeHandler({
+                ...value,
+                [key]: Number(e.target.value.replace(/[^0-9]/, "")),
+              });
+            } else {
+              changeHandler({ ...value, [key]: 1 });
+            }
           }}
           value={value[key]}
         />
