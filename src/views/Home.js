@@ -5,7 +5,7 @@ const Home = () => {
     <div className="home-container">
       <h3>Welcome Back, Guest</h3>
       <section className="home-section">
-        <header className="section-header">Summary:</header>
+        <header className="section-header">Summary</header>
         <p>Workouts completed this week</p>
         <p>Most frequent exercise</p>
       </section>
@@ -14,7 +14,7 @@ const Home = () => {
         <p>Challenge</p>
       </section>
       <section className="home-section">
-        <header className="section-header">Recent Workouts:</header>
+        <header className="section-header">Recent Workouts</header>
         <p>workout</p>
       </section>
     </div>

@@ -1,5 +1,10 @@
 .nav-container {
-  margin-top: auto;
+  /* margin-top: auto; */
+  position: fixed;
+  overflow: hidden;
+  bottom: 0;
+  left: auto;
+  width: inherit;
 }
 
 .nav-container ul {
@@ -10,6 +15,7 @@
 
 .nav-icon {
   list-style-type: none;
+  float: left;
 }
 
 .nav-container path {
