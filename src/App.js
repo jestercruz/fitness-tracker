@@ -5,6 +5,7 @@ import Home from "./views/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddWorkout from "./views/AddWorkout";
 import Navigation from "./views/Navigation";
+import Login from "./views/Login";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/addworkout" element={<AddWorkout />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Navigation />
       </div>

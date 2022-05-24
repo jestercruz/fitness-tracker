@@ -1,9 +1,17 @@
 .input {
-  height: 3em;
-  margin-bottom: 10px;
-  border-radius: 15px;
-  border-color: black;
+  height: 30px;
+  margin-bottom: 15px;
+  border-radius: 8px 8px 0px 0px;
+  border: 0px;
+  border-bottom: 2px solid #58a4b0;
   padding-left: 10px;
+  background-color: transparent;
+  color: #a0a0a0;
+  font-size: 16px;
+}
+
+.input::placeholder {
+  color: #a0a0a0;
 }
 
 .input:focus {

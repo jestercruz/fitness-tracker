@@ -3,6 +3,7 @@ import "../stylesheets/ExerciseInput.css";
 import Input from "./Input";
 import Stepper from "./Stepper";
 import { WORKOUTS } from "../data/workouts";
+import Button from "./Button";
 
 const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
   const [updateHistory, setUpdateHistory] = useState(false);
@@ -103,7 +104,15 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
         <Stepper label="Sets" changeHandler={setExercise} value={exercise} />
         <Stepper label="Reps" changeHandler={setExercise} value={exercise} />
       </div>
-      <button
+      <Button
+        className="add-workout"
+        onClick={() => {
+          setExercise({ ...exercise, id: Date.now() });
+          setUpdateHistory(true);
+        }}
+        label="Add Workout"
+      />
+      {/* <button
         className="add-workout"
         onClick={() => {
           setExercise({ ...exercise, id: Date.now() });
@@ -111,7 +120,7 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
         }}
       >
         Add Workout
-      </button>
+      </button> */}
     </div>
   );
 };

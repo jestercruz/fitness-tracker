@@ -19,7 +19,7 @@ const Navigation = () => {
           </Link>
         </li>
         <li className="nav-icon">
-          <Link to="/">
+          <Link to="/login">
             <Logout />
           </Link>
         </li>

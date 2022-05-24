@@ -5,7 +5,9 @@ const Stepper = ({ label, changeHandler, value }) => {
   const key = label.toLowerCase();
   return (
     <div>
-      <label htmlFor={label}>{label}</label>
+      <label htmlFor={label} className="stepper-label">
+        {label}
+      </label>
       <div className="stepper-container">
         <button
           className="stepperButton"
