@@ -1,5 +1,6 @@
 import Input from "../components/Input";
 import Button from "../components/Button";
+import Title from "../components/Title";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -17,6 +18,7 @@ const Signup = () => {
   const [isValid, setIsValid] = useState(false);
   return (
     <>
+      <Title title="Sign Up" />
       <Input
         placeholder="First Name"
         onChange={(e) => {

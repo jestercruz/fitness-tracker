@@ -1,7 +1,7 @@
 .exercise-input-container {
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  /* overflow: auto; */
   height: calc(100% - 192px); /* will come back to later */
 }
 

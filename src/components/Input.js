@@ -33,9 +33,10 @@ const Input = ({
   return (
     <>
       <input
-        className={`input ${showAutoComplete ? "with-autocomplete" : ""} ${
-          !isValid ? "invalid" : ""
-        }`}
+        className={`input 
+        ${enableAutoComplete && showAutoComplete ? "with-autocomplete" : ""}
+        ${!isValid ? "invalid" : ""}
+        `}
         type={type}
         placeholder={placeholder}
         onChange={onInputChange}

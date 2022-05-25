@@ -10,7 +10,7 @@ const Stepper = ({ label, changeHandler, value }) => {
       </label>
       <div className="stepper-container">
         <button
-          className="stepperButton"
+          className="stepper-button"
           onClick={() => {
             value[key] -= 1;
             if (value[key] > 0) {
@@ -36,7 +36,7 @@ const Stepper = ({ label, changeHandler, value }) => {
           value={value[key]}
         />
         <button
-          className="stepperButton"
+          className="stepper-button"
           onClick={() => changeHandler({ ...value, [key]: value[key] + 1 })}
         >
           +

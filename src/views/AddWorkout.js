@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Title from "../components/Title";
 import ExerciseInput from "../components/ExerciseInput";
 import DisplayHistory from "../components/DisplayHistory";
 
@@ -18,6 +18,7 @@ const AddWorkout = () => {
   const [history, setHistory] = useState([]);
   return (
     <>
+      <Title title="Add Workout" />
       <ExerciseInput
         exercise={exercise}
         setExercise={setExercise}

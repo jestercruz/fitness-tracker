@@ -1,5 +1,6 @@
 import Input from "../components/Input";
 import Button from "../components/Button";
+import Title from "../components/Title";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
   return (
     <>
+      <Title title="Log in" />
       <Input
         placeholder="Username"
         onChange={(e) => {

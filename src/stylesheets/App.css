@@ -3,6 +3,7 @@ body {
   padding: 0px;
   width: 100vw;
   background-color: #1b1b1e;
+  /* background-color: white; */
   font-family: sans-serif, serif;
   color: #fff;
 }
@@ -10,10 +11,8 @@ body {
 /* makes the calendar icon disappear on chrome and makes the input clickable for the picker */
 .input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
-  /* background-color: red; */
   height: 20px;
   width: 80%;
-
   position: absolute;
   left: 10%;
 }
