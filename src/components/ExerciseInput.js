@@ -112,15 +112,6 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
         }}
         label="Add Workout"
       />
-      {/* <button
-        className="add-workout"
-        onClick={() => {
-          setExercise({ ...exercise, id: Date.now() });
-          setUpdateHistory(true);
-        }}
-      >
-        Add Workout
-      </button> */}
     </div>
   );
 };

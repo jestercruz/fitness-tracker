@@ -1,11 +1,12 @@
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
-
+  const navigate = useNavigate();
   return (
     <>
       <Input
@@ -23,8 +24,21 @@ const Login = () => {
         value={password}
         type="password"
       />
-      <Button className="" onClick={() => {}} label="Log in" />
-      <Button className="" secondary onClick={() => {}} label="Sign Up" />
+      <Button
+        className=""
+        onClick={() => {
+          console.log(userName + " " + password);
+        }}
+        label="Log in"
+      />
+      <Button
+        className=""
+        secondary
+        onClick={() => {
+          navigate("/signup");
+        }}
+        label="Sign Up"
+      />
     </>
   );
 };

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
-  height: calc(100% - 75px - 85px - 32px); /* will come back to later */
+  height: calc(100% - 192px); /* will come back to later */
 }
 
 .exercise-input-container > .number-inputs {
