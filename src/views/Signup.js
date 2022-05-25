@@ -48,7 +48,8 @@ const Signup = () => {
             /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(e.target.value)
           ) {
             setIsValid(true);
-            setUserInfo({ ...userInfo, email: e.target.value });
+          } else {
+            setIsValid(false);
           }
         }}
         value={userInfo.email}

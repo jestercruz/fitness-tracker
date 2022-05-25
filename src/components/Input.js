@@ -34,7 +34,7 @@ const Input = ({
     <>
       <input
         className={`input ${showAutoComplete ? "with-autocomplete" : ""} ${
-          !isValid ? "valid" : ""
+          !isValid ? "invalid" : ""
         }`}
         type={type}
         placeholder={placeholder}

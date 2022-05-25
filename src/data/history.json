@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1653445245270,
+    "date": "2022-05-25",
+    "group": "Arms",
+    "exerciseName": "Bicep Curl",
+    "weight": "10",
+    "sets": 4,
+    "reps": 10
+  },
+  {
+    "id": 1653445273355,
+    "date": "2022-05-25",
+    "group": "Shoulders",
+    "exerciseName": "Shoulder Shrugs",
+    "weight": "10",
+    "sets": 4,
+    "reps": 10
+  }
+]

@@ -14,13 +14,13 @@
   overflow: auto;
 }
 
-.auto-complete-panel.group {
+/* .auto-complete-panel.group {
   top: 180px;
 }
 
 .auto-complete-panel.exerciseName {
   top: 236px;
-}
+} */
 
 .auto-complete-item {
   list-style-type: none;
