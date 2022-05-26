@@ -4,7 +4,7 @@ import Title from "../components/Title";
 const Home = () => {
   return (
     <>
-      <Title title="Fitness Tracker" />
+      <Title title="Fitness Tracker" icon />
       <div className="home-container">
         <h3>Welcome Back, Guest</h3>
         <section className="home-section">

@@ -18,7 +18,7 @@ const AddWorkout = () => {
   const [history, setHistory] = useState([]);
   return (
     <>
-      <Title title="Add Workout" />
+      <Title title="Add Workout" icon />
       <ExerciseInput
         exercise={exercise}
         setExercise={setExercise}

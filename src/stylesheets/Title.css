@@ -1,4 +1,14 @@
+.title-container {
+  display: flex;
+  justify-content: center;
+}
+
+.title-container.with-icon {
+  justify-content: space-between;
+  align-items: center;
+}
+
 .header {
   text-align: center;
-  height: 75px;
+  /* height: 75px; */
 }

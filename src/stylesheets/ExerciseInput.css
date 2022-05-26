@@ -1,7 +1,9 @@
 .exercise-input-container {
   display: flex;
   flex-direction: column;
-  /* overflow: auto; */
+  /*
+  revisit later - hides the sides of box shadow
+  overflow-y: auto; */
   height: calc(100% - 192px); /* will come back to later */
 }
 
