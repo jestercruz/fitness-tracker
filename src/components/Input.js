@@ -7,6 +7,7 @@ const Input = ({
   onChange,
   value,
   enableAutoComplete = false,
+  isValid = true,
   type = "text",
   data,
   dataKey,
@@ -32,7 +33,10 @@ const Input = ({
   return (
     <>
       <input
-        className={`input ${showAutoComplete ? "with-autocomplete" : ""}`}
+        className={`input 
+        ${enableAutoComplete && showAutoComplete ? "with-autocomplete" : ""}
+        ${!isValid ? "invalid" : ""}
+        `}
         type={type}
         placeholder={placeholder}
         onChange={onInputChange}

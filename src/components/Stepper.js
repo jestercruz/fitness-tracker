@@ -5,10 +5,12 @@ const Stepper = ({ label, changeHandler, value }) => {
   const key = label.toLowerCase();
   return (
     <div>
-      <label htmlFor={label}>{label}</label>
+      <label htmlFor={label} className="stepper-label">
+        {label}
+      </label>
       <div className="stepper-container">
         <button
-          className="stepperButton"
+          className="stepper-button"
           onClick={() => {
             value[key] -= 1;
             if (value[key] > 0) {
@@ -34,7 +36,7 @@ const Stepper = ({ label, changeHandler, value }) => {
           value={value[key]}
         />
         <button
-          className="stepperButton"
+          className="stepper-button"
           onClick={() => changeHandler({ ...value, [key]: value[key] + 1 })}
         >
           +

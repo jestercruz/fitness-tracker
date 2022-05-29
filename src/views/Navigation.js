@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ReactComponent as HomeIcon } from "../assets/home.svg";
 import { ReactComponent as AddIcon } from "../assets/add.svg";
-import { ReactComponent as Logout } from "../assets/logout.svg";
+import { ReactComponent as HistoryIcon } from "../assets/history.svg";
 import "../stylesheets/Navigation.css";
 
 const Navigation = () => {
@@ -19,8 +19,8 @@ const Navigation = () => {
           </Link>
         </li>
         <li className="nav-icon">
-          <Link to="/">
-            <Logout />
+          <Link to="/history">
+            <HistoryIcon />
           </Link>
         </li>
       </ul>
