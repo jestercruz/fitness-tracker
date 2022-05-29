@@ -3,6 +3,11 @@
   flex-direction: column;
 }
 
+.date-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
 .history-item {
   background-color: rgba(255, 255, 255, 0.05);
   padding: 10px;
