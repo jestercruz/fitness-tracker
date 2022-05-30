@@ -5,7 +5,20 @@
 
 .date-inputs {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  gap: 10px;
+}
+
+.date-from,
+.date-to {
+  flex-basis: 100%;
+  position: relative;
+}
+
+.date-inputs label {
+  color: #a0a0a0;
+  display: block;
+  margin-bottom: 3px;
 }
 
 .history-item {

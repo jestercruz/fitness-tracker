@@ -7,13 +7,14 @@ body {
   color: #fff;
 }
 
-/* makes the calendar icon disappear on chrome and makes the input clickable for the picker */
+/* makes the calendar icon disappear on chrome and makes the input clickable for the picker
+remember to set container to position: relative */
 .input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
   height: 20px;
-  width: 80%;
+  width: 100%;
   position: absolute;
-  left: 10%;
+  left: 0;
 }
 
 .main-container {
