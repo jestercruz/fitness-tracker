@@ -1,0 +1,9 @@
+{
+  "user": "Me",
+  "summary": {
+    "workoutsCompleted": "3",
+    "frequentExercise": "Bicep Curls"
+  },
+  "challenge": "Work out 5 days",
+  "recentWorkouts": ["Bicep Curls", "Shoulder Shrugs"]
+}

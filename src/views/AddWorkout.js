@@ -4,11 +4,11 @@ import ExerciseInput from "../components/ExerciseInput";
 import DisplayHistory from "../components/DisplayHistory";
 
 const AddWorkout = () => {
-  const dateTime = new Date(Date.now()).toISOString().split("T");
+  const dateTime = new Date();
 
   const [exercise, setExercise] = useState({
     id: "",
-    date: dateTime[0],
+    date: dateTime,
     group: "",
     exerciseName: "",
     weight: 0,

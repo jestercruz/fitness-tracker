@@ -52,6 +52,7 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
         value={exercise.date}
         onChange={(e) => {
           setExercise({ ...exercise, date: e.target.value });
+          console.log(exercise);
         }}
       />
       <Input
