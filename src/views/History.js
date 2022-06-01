@@ -16,6 +16,8 @@ const History = () => {
   const [historyData, setHistoryData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchBy, setSearchBy] = useState();
+  const [dateFrom, setDateFrom] = useState();
+  const [dateTo, setDateTo] = useState();
 
   const formatDate = (date) => {
     const [year, month, day] = date.split("-");
@@ -33,7 +35,28 @@ const History = () => {
     <>
       <Title title="Past Workouts" icon />
       <div className="search-container">
-        
+        <div className="date-inputs">
+          <div className="date-from">
+            <label htmlFor="date-from">From</label>
+            <Input
+              type="date"
+              value={dateFrom}
+              onChange={(e) => {
+                setDateFrom(e.target.value);
+              }}
+            />
+          </div>
+          <div className="date-to">
+            <label htmlFor="date-to">To</label>
+            <Input
+              type="date"
+              value={dateTo}
+              onChange={(e) => {
+                setDateTo(e.target.value);
+              }}
+            />
+          </div>
+        </div>
         <Input
           className="search-bar"
           placeholder="search for..."
