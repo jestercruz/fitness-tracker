@@ -16,7 +16,7 @@ const ExerciseInput = ({ exercise, setExercise, setHistory, history }) => {
 
   const findMuscleGroup = (e) => {
     /* goes through each of the workouts and looks for the group that matches the entry
-     ** and returns the group that contains that exercise*/
+     * and returns the group that contains that exercise*/
     const workoutObject = WORKOUTS.find((el) => {
       for (let i = 0; i < el.exercises.length; i++) {
         if (el.exercises[i].exerciseName === e.target.value) {
